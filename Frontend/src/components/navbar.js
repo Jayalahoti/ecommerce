@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const Navbar = () => {
 
-    const user = useSelector((state)=>state.userReducer);
+    const user = useSelector((state) => state.userReducer);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -42,13 +42,16 @@ const Navbar = () => {
                     </form>
                     <ul className="nav justify-content-end">
                         <li className="nav-item dropdown">
-                            {name ? <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{name}</a> : <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">User</a>}
-                            <ul className="dropdown-menu">
-                                {token ? <> <li><Link className="dropdown-item" to='/userprofile'>User Profile</Link></li>
+                            {token ? <>
+                                <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">{name}</a>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" to='/userprofile'>User Profile</Link></li>
                                     <li><Link className="dropdown-item" to="/history">Order History</Link></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="#" onClick={() => signout()}>Sign out</a></li></> : <li><Link className="dropdown-item" to="/login">Login</Link></li>}
-                            </ul>
+                                    <li><a className="dropdown-item" href="#" onClick={() => signout()}>Sign out</a></li>
+                                </ul></> : <li className="nav-item">
+                                <Link className="nav-link active" to='/Login'>Login</Link>
+                            </li>}
                         </li>
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Seller</a>
@@ -65,7 +68,8 @@ const Navbar = () => {
                             </li>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link links" to="/cart"> <FontAwesomeIcon className="cart" icon={faCartShopping} /> </Link>
+                            {token ? <Link className="nav-link links" to="/cart"> <FontAwesomeIcon className="cart" icon={faCartShopping} /> </Link> : ""}
+
                         </li>
                     </ul>
                     <div className="offcanvas offcanvas-start" tabindex="-2" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">

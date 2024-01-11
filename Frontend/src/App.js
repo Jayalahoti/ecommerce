@@ -25,42 +25,46 @@ import Edituser from './components/edituser';
 import EditProduct from './components/editProduct';
 
 function App() {
-  const user = useSelector((state)=> state.userReducer)
+  const user = useSelector((state) => state.userReducer);
 
+  const token = localStorage.getItem("token");
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchCart());
-  }, [dispatch])
+
+    useEffect(() => {
+      if (token) {
+        dispatch(fetchCart());
+      }
+    }, [dispatch])
 
 
   return (
     <div className="App">
-      
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            {/* <Route path='/product' element={<Product/>}></Route> */}
-            <Route path='/login' element={<Login />}></Route>
-            <Route path='/signup' element={<Signup />}></Route>
-            <Route path='/payment' element={<Payment />}></Route>
-            <Route path='/preview' element={<Preview />}></Route>
-            <Route path='/order' element={<Order />}></Route>
-            <Route path='/userprofile' element={<Userprofile />}></Route>
-            <Route path='/history' element={<History />}></Route>
-            <Route path='/allproducts' element={<Allproducts />}></Route>
-            <Route path='/product/:id' element={<Product />}></Route>
-            <Route path='/cart' element={<Cart />}></Route>
-            <Route path='/shipping' element={<Shipping />}></Route>
-            <Route path='/home' element={<Home />}></Route>
-            <Route path='/admin' element={<Admin />}></Route>
-            <Route path='/addproduct' element={<AddProduct />}></Route>
-            <Route path='/allusers' element={<ManageUsers />}></Route>
-            <Route path='/allorders' element={<ManageOrders />}></Route>
-            <Route path='/edituser/:id' element={<Edituser />}></Route>
-            <Route path='/editproduct/:id' element={<EditProduct />}></Route>
-          </Routes>
-        </Router>
-      
+
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          {/* <Route path='/product' element={<Product/>}></Route> */}
+          <Route path='/login' element={<Login />}></Route>
+          <Route path='/signup' element={<Signup />}></Route>
+          <Route path='/payment' element={<Payment />}></Route>
+          <Route path='/preview' element={<Preview />}></Route>
+          <Route path='/order' element={<Order />}></Route>
+          <Route path='/userprofile' element={<Userprofile />}></Route>
+          <Route path='/history' element={<History />}></Route>
+          <Route path='/allproducts' element={<Allproducts />}></Route>
+          <Route path='/product/:id' element={<Product />}></Route>
+          <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/shipping' element={<Shipping />}></Route>
+          <Route path='/home' element={<Home />}></Route>
+          <Route path='/admin' element={<Admin />}></Route>
+          <Route path='/addproduct' element={<AddProduct />}></Route>
+          <Route path='/allusers' element={<ManageUsers />}></Route>
+          <Route path='/allorders' element={<ManageOrders />}></Route>
+          <Route path='/edituser/:id' element={<Edituser />}></Route>
+          <Route path='/editproduct/:id' element={<EditProduct />}></Route>
+        </Routes>
+      </Router>
+
     </div>
   );
 }
