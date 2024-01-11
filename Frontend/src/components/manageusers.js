@@ -79,7 +79,7 @@ function ManageUsers() {
                                     {user.isAdmin ? <td>Yes</td> : <td>No</td>}
                                     <td>
                                         <Link to={`/edituser/${user._id}`}><button className="btn btn-primary cart-btn">Edit</button></Link>
-                                        <button className="btn btn-danger cart-btn" onClick={() => deleteuser(user)}>Delete</button>
+                                        <button className="btn btn-danger cart-btn" onClick={()=>deleteuser(user)}>Delete</button>
                                     </td>
                                 </tr>
                             ))

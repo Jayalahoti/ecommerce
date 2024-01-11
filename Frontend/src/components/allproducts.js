@@ -2,14 +2,31 @@
 
 import React, { useEffect, useState } from 'react';
 import { API_BASE_URL } from '../config';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from './navbar';
+import ProductCard from './productCard';
 
 const Allproducts = () => {
 
   const [allproducts, setAllproducts] = useState([]);
   const isAdmin = localStorage.getItem("isAdmin");
+  const navigate = useNavigate();
+
+  const deleteproduct = (item) => {
+    try {
+      const res = axios.get(`${API_BASE_URL}/deleteproduct/${item._id}`);
+      if (res.status === 400) {
+        alert("product cannot be deleted");
+      } if (res.status === 200) {
+        alert("Item Deleted!");
+        getAllproducts();
+        navigate('/allproducts')
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const getAllproducts = async () => {
     console.log("entered getallproducts");
@@ -22,26 +39,11 @@ const Allproducts = () => {
     }
   }
 
+
   // Fetch data
   useEffect(() => {
     getAllproducts();
   }, []);
-
-  const deleteproduct = (item) => {
-    try {
-      const res = axios.get(`${API_BASE_URL}/deleteproduct/${item._id}`);
-      if (res.status === 400) {
-        alert("product cannot be deleted");
-      } if (res.status === 200) {
-        alert("Item Deleted!")
-        getAllproducts();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-
 
   return (
 
@@ -66,6 +68,9 @@ const Allproducts = () => {
       <h3>All Products</h3> <br />
       <div className='row'>
         {allproducts && allproducts.map(item => (
+          // <ProductCard key={item._id}
+          //   item={item}
+          //   removeFromCartHandler={() => deleteproduct()} />
           <div className="card mx-3 my-3" style={{ width: "18rem" }}>
             <Link to={`/product/${item._id}/`}><img src={`${API_BASE_URL}/uploads/${item.imageURL}`}
               className="card-img-top" alt={item.product} /></Link>
@@ -78,7 +83,7 @@ const Allproducts = () => {
               {isAdmin ?
                 <div className='d-flex'>
                   <Link className="btn btn-primary cart-btn" to={`/editproduct/${item._id}/`}>Edit</Link>
-                  <button className="btn btn-danger cart-btn" onClick={() => deleteproduct(item)}>Delete</button>
+                  <button className="btn btn-danger cart-btn" onClick={()=>deleteproduct(item)}>Delete</button>
                 </div> : <Link className="btn btn-primary cart-btn" to={`/product/${item._id}/`}>View Product</Link>}
             </div>
           </div>

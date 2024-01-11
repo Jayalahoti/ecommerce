@@ -52,3 +52,4 @@ react, axios, bootstrap, react-router-dom, sweetalert2, uuid
 
 Additional Things -
 - Have used multer.
+- Frontend deployment link - https://65a0126916089c0577856da2--courageous-duckanoo-5f88de.netlify.app/allproducts
