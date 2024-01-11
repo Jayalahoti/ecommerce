@@ -1,0 +1,77 @@
+/*created variables for repeatitive styling*/
+:root{
+  --colordark: darkviolet;
+  --colorlight: rgb(227, 190, 196);
+  --fontfamily: 'showcard-gothic', 'sitka-small-semibold', cursive, 'verdana';
+}
+/*navbar styling*/
+.navbar-custom{
+  background-color: var(--colorlight);
+}
+/*hover effects to dropdown*/
+.dropdown:hover .dropdown-menu{display: block;}
+
+/*created logo using css*/
+.logo{
+  font-family: var(--fontfamily);
+  color: lemonchiffon;
+  background-image: linear-gradient(to left, darkviolet, rgb(139, 83, 139));
+  padding: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+/*styling to all the primary buttons used in every page*/
+.btn-outline-primary{
+  color: lemonchiffon;
+  background-color: darkorchid;
+  border: 2px solid purple;
+}
+/*Header button styling*/
+.links{
+  color: var(--colordark);
+}
+/*nav tab styling*/
+.nav-tab{
+  background-color: aliceblue;
+}
+.tablink{
+  color: darkviolet;
+}
+/*hover effect to search and login botton*/
+.navbtn:hover{
+  background-color: rgb(160, 134, 211);
+  color: rgb(62, 20, 79);
+  font-weight: bold;
+  width: 100px;
+  height: 40px;
+}
+/*hover effect to cart*/
+.headcart:hover{
+  color: rgb(92, 22, 122);
+  font-weight: bold;
+  font-size: xx-large;
+}
+/*styling for all h3 in every page*/
+h3{
+  text-align: center;
+  font-family: var(--fontfamily);
+  color: purple;
+}
+/*styling to all buttons in forms*/
+.submit{
+  width: 300px;
+  color: lemonchiffon;
+  background-color: var(--colordark);
+  border: 2px solid var(--colorlight);
+}
+label, h4{
+  color: var(--colordark);
+  font-weight: bold;
+}
+.card-img-top{
+  height: 15rem;
+}
+/*cart symbol at every page*/
+.cart-btn{
+  background-color: var(--colordark);
+}

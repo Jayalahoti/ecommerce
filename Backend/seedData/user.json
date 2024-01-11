@@ -1,0 +1,9 @@
+[
+    {
+        "fullname": "John Doe",
+        "email": "john@gmail.com",
+        "password": "bcryptjs.hashSync('john')",
+        "confirm": "bcryptjs.hashSync('john')",
+        "isAdmin": false
+    }
+]

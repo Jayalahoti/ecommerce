@@ -1,0 +1,54 @@
+
+E-commerce Project 
+---------------------------------------------------------------------
+
+Backend -
+It contains the server side of the website. 
+Database Name - Fashion Mart ("mongodb://127.0.0.1:27017/fashionmart")
+
+It has following models -
+1. User - add/get/update/delete all or one users
+2. Product - add/get/update/delete all or one products
+3. Cart - add/get/update/delete all or one cartitems
+4. Address - add/get all or one address
+5. order - add/get all or one orders
+6. Review - add/get all or one reviews
+
+There is an uploads folder which saves all the photos uploaded from adding new product
+Packages installed & used - express, mongoose, nodemon, jsonwebtoken, cors, bcryptjs, multer
+------------------------------------------------------------------------
+
+Frontend -
+It has the client side coding part.
+
+App.js - has all the routes.
+home.js - It has header & slider components 
+navbar.js - It has navbar which consists of name & search sections ( on clicking on name (fashionMart) you will be redirected to home page), cart icon takes to cart page.
+On login you can see username displayed on navbar 
+If user is admin (isAdmin : true), the admin access is automatically opened
+
+User can -
+- Navigate through all products 
+- View & add to cart selected product.
+- Can increase & decrease the quantity of each product (based on which price gets manipulated)
+- Can add different addresses 
+- Can place order (in /preview the order is added to backend - which contains, addressid, cartitems, userid, totalItems & totalAmount)
+- Can edit his profile in edit profile dropdown of navbar
+- Can logout (on logout, home page is accessible to user)
+- Can see his order history
+
+Admin -
+- Has access to all products in Manage product tab
+- can add new product from add product 
+- can delete & edit the product
+- has access to all users - manage users
+- can edit user's admin access & delete user
+- Has access to all orders from all users
+
+Packages used - 
+fontawesome, redux, react-redux, redux-thunk, redux-toolkit, 
+react, axios, bootstrap, react-router-dom, sweetalert2, uuid
+-----------------------------------------------------------------------------------------------
+
+Additional Things -
+- Have used multer.

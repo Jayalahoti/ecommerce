@@ -1,0 +1,38 @@
+.product-btn{
+    color: lemonchiffon;
+    background-color: var(--colordark);
+    border: 2px solid var(--colorlight);
+    border-radius: 5px;
+    width: 10rem;
+    height: 2.5rem;
+    font-weight: bold;
+    margin: auto;
+}
+.review-block{
+    background-color: rgb(199, 253, 253);
+    border-radius: 5px;
+    height: 3rem;
+    color: rgb(3, 57, 3);
+    font-weight: 600;
+    padding-top: 10px;
+}
+.product-img{
+    height: 500px;
+    width: 500px;
+    border-radius: 20px;
+}
+@media  only screen and (max-width: 780px) {
+    .product-details {
+        position: absolute;
+        top: 500px;
+    }
+    .seller {
+        position: relative;
+        top: 30px;
+        left: 50%;
+    }
+    .product-img{
+        height: 300px;
+        width: 90%;
+    }
+}

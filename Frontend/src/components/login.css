@@ -1,0 +1,20 @@
+.user-form{
+    width: 40rem;
+}
+.user-login{
+    margin-left: 25%;
+}
+.payment{
+    margin-left: 48%;
+}
+h1{
+    font-family: var(--fontfamily);
+    color: purple;
+}
+.process-table{
+    border-bottom: solid 5px purple;
+}
+.cart-item{
+    justify-content: space-between;
+    margin: auto;
+}
